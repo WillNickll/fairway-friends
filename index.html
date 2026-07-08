@@ -3,68 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fairway Friends - Golf Social Network</title>
+    <title>Fairway Friends ⛳️</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
+        <div class="logo">⛳️ Fairway Friends</div>
         <nav>
-            <div class="logo">⛳️ Fairway Friends</div>
-            <ul>
-                <li><a href="#" onclick="showSection('feed')">Feed</a></li>
-                <li><a href="#" onclick="showSection('post-round')">Post Round</a></li>
-                <li><a href="#" onclick="showSection('leaderboard')">Leaderboard</a></li>
-                <li><a href="#" onclick="showSection('profile')">Profile</a></li>
-            </ul>
-            <div id="auth-status">Welcome, Guest</div>
+            <a href="#" onclick="showSection('feed')">Feed</a>
+            <a href="#" onclick="showSection('post')">Post Round</a>
+            <a href="#" onclick="showSection('leaderboard')">Leaderboard</a>
         </nav>
+        <div id="auth-status">Welcome, Guest</div>
     </header>
 
-    <main>
-        <!-- Login/Register Modal -->
-        <div id="auth-modal" class="modal">
-            <div class="modal-content">
-                <h2>Login / Register</h2>
-                <input type="text" id="username" placeholder="Username" required>
-                <input type="password" id="password" placeholder="Password" required>
-                <button onclick="handleAuth()">Login / Register</button>
-                <p id="auth-message"></p>
-            </div>
+    <!-- Auth -->
+    <div id="auth-modal" class="modal">
+        <div class="modal-content">
+            <h2>Join the Fairway</h2>
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button onclick="handleAuth()">Tee Off</button>
         </div>
+    </div>
 
-        <!-- Feed Section -->
-        <section id="feed-section" class="section">
-            <h1>Recent Rounds</h1>
-            <div id="feed"></div>
-        </section>
+    <!-- Social Feed -->
+    <section id="feed-section" class="section">
+        <h1>Recent Rounds</h1>
+        <div id="feed" class="feed"></div>
+    </section>
 
-        <!-- Post Round Section -->
-        <section id="post-round-section" class="section" style="display: none;">
-            <h1>Post Your Round</h1>
-            <form id="round-form">
-                <input type="text" id="course" placeholder="Course Name" required>
-                <input type="date" id="date" required>
-                <input type="number" id="score" placeholder="Total Score" required>
-                <textarea id="notes" placeholder="Notes, highlights..."></textarea>
-                <button type="submit">Post Round</button>
-            </form>
-        </section>
+    <!-- Post -->
+    <section id="post-section" class="section" style="display:none;">
+        <h1>Share Your Round</h1>
+        <form id="round-form">
+            <select id="course" required>
+                <!-- populated by JS -->
+            </select>
+            <input type="date" id="date" required>
+            <input type="number" id="score" placeholder="Total Score" required>
+            <textarea id="notes" placeholder="Highlights, birdies, tough breaks..."></textarea>
+            <button type="submit">Post to Feed</button>
+        </form>
+    </section>
 
-        <!-- Leaderboard Section -->
-        <section id="leaderboard-section" class="section" style="display: none;">
-            <h1>🏆 Leaderboard</h1>
-            <table id="leaderboard">
-                <thead><tr><th>Rank</th><th>Player</th><th>Score</th><th>Handicap</th></tr></thead>
-                <tbody></tbody>
-            </table>
-        </section>
-
-        <!-- Profile Section -->
-        <section id="profile-section" class="section" style="display: none;">
-            <h1>Your Profile</h1>
-            <div id="profile-info"></div>
-        </section>
-    </main>
+    <!-- Leaderboard -->
+    <section id="leaderboard-section" class="section" style="display:none;">
+        <h1>🏆 Leaderboard</h1>
+        <table id="leaderboard"><tbody></tbody></table>
+    </section>
 
     <script src="script.js"></script>
 </body>
