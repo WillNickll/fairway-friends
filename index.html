@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fairway Friends - Golf Social Network</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">⛳️ Fairway Friends</div>
+            <ul>
+                <li><a href="#" onclick="showSection('feed')">Feed</a></li>
+                <li><a href="#" onclick="showSection('post-round')">Post Round</a></li>
+                <li><a href="#" onclick="showSection('leaderboard')">Leaderboard</a></li>
+                <li><a href="#" onclick="showSection('profile')">Profile</a></li>
+            </ul>
+            <div id="auth-status">Welcome, Guest</div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Login/Register Modal -->
+        <div id="auth-modal" class="modal">
+            <div class="modal-content">
+                <h2>Login / Register</h2>
+                <input type="text" id="username" placeholder="Username" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button onclick="handleAuth()">Login / Register</button>
+                <p id="auth-message"></p>
+            </div>
+        </div>
+
+        <!-- Feed Section -->
+        <section id="feed-section" class="section">
+            <h1>Recent Rounds</h1>
+            <div id="feed"></div>
+        </section>
+
+        <!-- Post Round Section -->
+        <section id="post-round-section" class="section" style="display: none;">
+            <h1>Post Your Round</h1>
+            <form id="round-form">
+                <input type="text" id="course" placeholder="Course Name" required>
+                <input type="date" id="date" required>
+                <input type="number" id="score" placeholder="Total Score" required>
+                <textarea id="notes" placeholder="Notes, highlights..."></textarea>
+                <button type="submit">Post Round</button>
+            </form>
+        </section>
+
+        <!-- Leaderboard Section -->
+        <section id="leaderboard-section" class="section" style="display: none;">
+            <h1>🏆 Leaderboard</h1>
+            <table id="leaderboard">
+                <thead><tr><th>Rank</th><th>Player</th><th>Score</th><th>Handicap</th></tr></thead>
+                <tbody></tbody>
+            </table>
+        </section>
+
+        <!-- Profile Section -->
+        <section id="profile-section" class="section" style="display: none;">
+            <h1>Your Profile</h1>
+            <div id="profile-info"></div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
